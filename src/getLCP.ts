@@ -45,6 +45,7 @@ export const getLCP = (onReport: ReportHandler, reportAllChanges?: boolean) => {
     report();
   };
 
+  // largest-contentful-paint指标也是PerformanceObserver对象内部标准化的
   const po = observe('largest-contentful-paint', entryHandler);
 
   if (po) {
@@ -62,6 +63,7 @@ export const getLCP = (onReport: ReportHandler, reportAllChanges?: boolean) => {
     // Stop listening after input. Note: while scrolling is an input that
     // stop LCP observation, it's unreliable since it can be programmatically
     // generated. See: https://github.com/GoogleChrome/web-vitals/issues/75
+    // 在用户第一次交互之后，停止记录该指标
     ['keydown', 'click'].forEach((type) => {
       addEventListener(type, stopListening, {once: true, capture: true});
     });

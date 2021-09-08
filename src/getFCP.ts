@@ -49,6 +49,7 @@ export const getFCP = (onReport: ReportHandler, reportAllChanges?: boolean) => {
   const fcpEntry = performance.getEntriesByName &&
       performance.getEntriesByName('first-contentful-paint')[0];
 
+  // 对于不支持getEntriesByName的浏览器的降级方案
   const po = fcpEntry ? null : observe('paint', entryHandler);
 
   if (fcpEntry || po) {

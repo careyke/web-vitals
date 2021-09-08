@@ -20,6 +20,11 @@ export interface OnHiddenCallback {
 }
 
 
+/**
+ * 页面隐藏时触发事件
+ * @param cb 
+ * @param once 
+ */
 export const onHidden = (cb: OnHiddenCallback, once?: boolean) => {
   const onHiddenOrPageHide = (event: Event) => {
     if (event.type === 'pagehide' || document.visibilityState === 'hidden') {

@@ -20,6 +20,7 @@ interface onBFCacheRestoreCallback {
 
 export const onBFCacheRestore = (cb: onBFCacheRestoreCallback) => {
   addEventListener('pageshow', (event) => {
+    // 表示页面是否是从缓存中加载
     if (event.persisted) {
       cb(event);
     }

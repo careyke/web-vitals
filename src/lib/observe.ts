@@ -26,6 +26,12 @@ export interface PerformanceEntryHandler {
  * This function also feature-detects entry support and wraps the logic in a
  * try/catch to avoid errors in unsupporting browsers.
  */
+/**
+ * 创建性能检测对象
+ * @param type 
+ * @param callback 
+ * @returns 
+ */
 export const observe = (
     type: string,
     callback: PerformanceEntryHandler,
